@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Child By JavaScript</title>
+</head>
+
+<body>
+    <ul id="fruit-list">
+        <h2>Fruit list:</h2>
+        <li>Mango</li>
+        <li>Banana</li>
+        <li>Jackfruit</li>
+        <li>Litchi</li>
+        <li>Apple</li>
+    </ul>
+
+    <script>
+        const newChild = document.createElement('li');
+        newChild.innerText = 'Cherry';
+
+        const parentDiv = document.getElementById('fruit-list');
+        parentDiv.appendChild(newChild);
+
+        console.log(document.querySelector('#fruit-list').innerHTML);
+
+
+
+        /**
+         * Creating new ul into html document by JavaScipt.
+        */
+
+        const newUl = document.createElement('ul')
+        document.body.appendChild(newUl);
+
+        const h1 = document.createElement('h1')
+        h1.innerText = 'Others fruits'
+
+        newUl.appendChild(h1)
+
+        const li1 = document.createElement('li');
+        li1.innerText = 'Grape';
+
+        newUl.appendChild(li1);
+
+        const li2 = document.createElement('li');
+        li2.innerText = 'Guava';
+        
+
+        newUl.appendChild(li2)
+
+
+
+    </script>
+</body>
+
+</html>
