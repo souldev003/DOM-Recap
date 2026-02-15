@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript | MouseEvent</title>
+</head>
+
+<body>
+    <input type="text" name="" id="user-name">
+
+    <h1>My secret info</h1>
+    <input id="delete-input" type="text" placeholder="write to delete">
+    <button id="delete-btn" disabled>Delete</button>
+
+    <script>
+        document.getElementById('user-name')
+            //keyup, keydown, keypress
+            .addEventListener('keyup', function (event) {
+                console.log(event.target.value);
+            })
+
+        document.getElementById('delete-input')
+            .addEventListener('keyup', function (event) {
+
+                let inputText = event.target.value;
+
+                const deleteBtn = document.getElementById('delete-btn');
+
+                if (inputText === 'Delete') {
+                    deleteBtn.removeAttribute('disabled')
+                } else {
+                    console.log('Something Wrong try again!')
+                    deleteBtn.setAttribute('disabled', true)
+                }
+            })
+    </script>
+</body>
+
+</html>
