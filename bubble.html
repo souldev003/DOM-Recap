@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript | Bubble</title>
+</head>
+
+<body>
+    <h1>Exploring Event Bubble</h1>
+    <p>List of things</p>
+    <ol id="list-item">
+        <li id="item-1">Books</li>
+        <li id="item-2">Video Games</li>
+        <li id="item-3">Table</li>
+        <li id="item-4">Fruits</li>
+        <li id="item-5">Chair</li>
+        <li id="item-6">Mobile Phone</li>
+    </ol>
+
+
+
+    <script>
+        //Item 1 clicker
+        // document.getElementById('item-1')
+        //     .addEventListener('click', function () {
+        //         console.log('item-1 clicked')
+        //     });
+
+
+        //Ol Clicker
+        document.getElementById('list-item')
+            .addEventListener('click', function (event) {
+                console.log('Ol item clicked')
+
+                if (event.target.tagName === 'LI') {
+                    console.log(event.target.innerText + ' clicked')
+                }
+            });
+
+        //Item 2 clicked all bubble are stopped
+        document.getElementById('item-2')
+            .addEventListener('click', function (event) {
+                console.log(event.target.innerText + ' clicked')
+
+                event.stopPropagation();
+                console.log('Bubbling Stopped')
+            })
+
+        //Item 3 Click Handler
+        document.getElementById('item-3')
+            .addEventListener('click', function (event) {
+                console.log(event.target.innerText + ' Clicked')
+
+
+                //it will stopped all event bubbling
+                event.stopImmediatePropagation()
+            })
+
+        //Event Bubbling
+        // document.getElementById('item-2')
+        //     .addEventListener('click', function (event) {
+        //         if (event.target.tagName === 'LI') {
+        //             console.log('clicked on:' + event.target.innerText)
+        //         }
+        //     })
+
+    </script>
+</body>
+
+</html>
