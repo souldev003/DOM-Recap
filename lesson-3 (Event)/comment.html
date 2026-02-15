@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment | JavaScript</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        #comments-heading {
+            color: lime;
+            font-weight: bold;
+            font-size: 56px;
+            text-transform: capitalize;
+
+        }
+
+        .comments-parah {
+            background-color: rgb(4, 37, 4);
+            color: rgb(147, 255, 137);
+            padding: 15px;
+            border: 2px solid greenyellow;
+            border-radius: 25%;
+        }
+
+        #comment-box {
+            padding-left: 10px;
+            margin-left: 20px;
+        }
+
+        #post-btn {
+            margin-left: 20px;
+            padding: 18px 22px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: capitalize;
+            background-color: green;
+            color: lime;
+            transition: transform ease-in-out 0.2s;
+        }
+
+        #post-btn:hover {
+            transform: scale(1.05);
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div id="comments-div">
+            <h1 id="comments-heading">Please share some constructive feedback for your country:</h1>
+            <p class="comments-parah">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eum quod dolores
+                perspiciatis architecto
+                incidunt quia asperiores officia ab minus consequatur ad commodi vero possimus earum, rerum molestias
+                reprehenderit nostrum.</p>
+            <p class="comments-parah">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eum quod dolores
+                perspiciatis architecto
+                incidunt quia asperiores officia ab minus consequatur ad commodi vero possimus earum, rerum molestias
+                reprehenderit nostrum.</p>
+            <p class="comments-parah">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eum quod dolores
+                perspiciatis architecto
+                incidunt quia asperiores officia ab minus consequatur ad commodi vero possimus earum, rerum molestias
+                reprehenderit nostrum.</p>
+        </div>
+
+        <textarea name="" id="comment-box" cols="65" rows="10" placeholder="write your goofy text:"></textarea><br><br>
+        <button id="post-btn">Post your brainless thought</button>
+    </section>
+
+
+
+    <script src="comment.js"></script>
+</body>
+
+</html>
