@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector in JavaScript</title>
+
+    <style>
+        .newClass {
+            background-color: red;
+            color: white;
+        }
+
+        .comment {
+            background-color: yellowgreen;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #create-btn {
+            padding: 16px 26px;
+            background-color: greenyellow;
+            border: none;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-div">
+        <h1 id="div-heading">hello world</h1>
+        <ul id="lists">
+            <li class="list-item">1</li>
+            <li class="list-item">2</li>
+            <li class="list-item">3</li>
+            <li class="list-item">4</li>
+            <li class="list-item">5</li>
+        </ul>
+        <img src="#" alt="img.jpg">
+        <br><br>
+        <div id="comment-box">
+            <p class="comment">box-1</p>
+            <p class="comment">box-2</p>
+            <p class="comment">box-3</p>
+            <p class="comment">box-4</p>
+        </div>
+        <textarea name="" id="comment-text" rows="3" cols="15"></textarea>
+        <button id="create-btn">Send</button>
+    </div>
+
+    <script>
+        const singleList = document.querySelector('.list-item')
+        // console.log(singleList)
+
+        const allList = document.querySelectorAll('.list-item')
+        // console.log(allList[4])
+
+
+        // console.log(document.getElementsByClassName('list-item'))
+
+
+        console.log(document.getElementById('main-div').children[1].innerText)
+
+        // for (let list of allList) {
+        //     console.log(list)
+        // }
+
+        const img = document.querySelector('img')
+        console.log(img)
+
+        img.setAttribute('alt', 'hello');
+
+        const createBtn = document.getElementById('create-btn');
+        createBtn.addEventListener('click', function (event) {
+
+            const comment = document.getElementById('comment-text');
+            const commentText = comment.value;
+
+            const newComment = document.createElement('p');
+            newComment.innerText = commentText;
+            newComment.classList.add('comment');
+
+            const commentsDiv = document.getElementById('comment-box');
+            commentsDiv.appendChild(newComment);
+
+            comment.value = '';
+
+        })
+
+    </script>
+</body>
+
+</html>
