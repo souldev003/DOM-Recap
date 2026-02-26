@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+
+    <!-- Tailwind Css And Daisy UI Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+
+        /* for focusing btn */
+        .stay-blue {
+            background-color: #3B82F6 !important;
+            color: white !important;
+            border-color: transparent !important;
+        }
+    </style>
+
+</head>
+
+<body class="bg-[#F8FAFC]">
+    <main id="main-Div">
+        <header class="container mx-auto max-w-[768px]: px-3">
+            <nav class="pt-16">
+                <h1 class="text-3xl text-[#002C5C] font-bold">Job Application Tracker</h1>
+                <div class="mt-5 grid grid-cols-3 gap-4">
+                    <div
+                        class="card bg-base-100 shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                        <div class="card-body">
+                            <h2 class="text-[14px] text-[#323B49]">Total</h2>
+                            <p id="stat-total" class="card-title text-2xl font-bold">0</p>
+                        </div>
+                    </div>
+                    <div
+                        class="card bg-base-100 shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                        <div class="card-body">
+                            <h2 class="text-[14px] text-[#323B49]">Interview</h2>
+                            <p id="stat-interview" class="card-title text-[#10B981] text-2xl font-bold">0</p>
+                        </div>
+                    </div>
+                    <div
+                        class="card bg-base-100 shadow-sm cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                        <div class="card-body">
+                            <h2 class="text-[14px] text-[#323B49]">Rejected</h2>
+                            <p id="stat-rejected" class="card-title text-[#EF4444] text-2xl font-bold">0</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <hr class="border-[#E6E7E9] my-8 container mx-auto">
+
+        <section class="container mx-auto">
+            <div>
+                <div class="textAndTitleSection max-w-[768px]: px-3">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-[#002C5C] text-[20px] font-semibold">Available Jobs</h1>
+                        <p
+                            class="text-[#64748B] font-medium cursor-pointer transition-all duration-300 hover:text-blue-600">
+                            <span id="job-count">0</span> Jobs
+                        </p>
+                    </div>
+
+                    <div class="mt-6 flex items-center gap-2">
+                        <button onclick="switchTab('all')" id="tab-all" class="btn btn-soft btn-primary">All</button>
+                        <button onclick="switchTab('interview')" id="tab-interview"
+                            class="btn btn-soft btn-primary">Interview</button>
+                        <button onclick="switchTab('rejected')" id="tab-rejected"
+                            class="btn btn-soft btn-primary">Rejected</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="all-container" class="hidden main-content container mx-auto mt-4 space-y-6">
+            <!-- Card-1 -->
+            <div
+                class="interview-card bg-white p-6 rounded-md space-y-4 cursor-pointer transition-all duration-150 hover:shadow-md hover:-translate-y-1">
+                <div class="flex items-start justify-between align-middle">
+                    <div class="heading">
+                        <h1 class="company-name text-[#002C5C] text-lg font-semibold">Mobile First Corp</h1>
+                        <h3 class="job-tittle text-[#64748B] text-base font-normal">React Native Developer</h3>
+                    </div>
+                    <i
+                        class="delete-icon fa-solid fa-trash-can cursor-pointer transition-all duration-300 hover:scale-110"></i>
+                </div>
+
+                <div>
+                    <p class="job-salary text-[#64748B] text-sm font-normal">Remote • Full-time • $130,000 -
+                        $175,000</p>
+                </div>
+
+                <div class="job-status-btn btn uppercase text-[#002C5C] text-xs">
+                    Not Applied
+                </div>
+
+                <p class="job-details text-[#323B49] font-normal text-sm">Build cross-platform mobile applications
+                    using
+                    React Native. Work on products used by
+                    millions of users worldwide.</p>
+
+                <div class="flex items-center gap-4">
+                    <button class="interview-selection-btn btn btn-outline btn-success">INTERVIEW</button>
+                    <button class="reject-selection-btn btn btn-outline btn-error">REJECTED</button>
+                </div>
+            </div>
+
+            <!-- Card-2 -->
+            <div
+                class="interview-card bg-white p-6 rounded-md space-y-4 cursor-pointer transition-all duration-150 hover:shadow-md hover:-translate-y-1 ">
+                <div class="flex items-start justify-between align-middle">
+                    <div class="heading">
+                        <h1 class="company-name text-[#002C5C] text-lg font-semibold">WebFlow Agency</h1>
+                        <h3 class="job-tittle text-[#64748B] text-base font-normal">Web Designer & Developer</h3>
+                    </div>
+                    <i
+                        class="delete-icon fa-solid fa-trash-can cursor-pointer transition-all duration-300 hover:scale-110"></i>
+                </div>
+
+                <div>
+                    <p class="job-salary text-[#64748B] text-sm font-normal">Los Angeles, CA
+                        •
+                        Part-time
+                        • $80,000 - $120,000</p>
+                </div>
+
+                <div class="job-status-btn btn uppercase text-[#002C5C] text-xs">
+                    Not Applied
+                </div>
+
+                <p class="job-details text-[#323B49] font-normal text-sm">Create stunning web experiences for
+                    high-profile
+                    clients. Must have portfolio and experience with modern web design
+                    trends.</p>
+
+                <div class="flex items-center gap-4">
+                    <button class="interview-selection-btn btn btn-outline btn-success">INTERVIEW</button>
+                    <button class="reject-selection-btn btn btn-outline btn-error">REJECTED</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="interview-container" class="hidden container mx-auto pt-4 space-y-4">Int</section>
+        <section id="rejected-container" class="hidden container mx-auto pt-4 space-y-4">Rej</section>
+
+        <section id="empty-section" class="hidden pb-10">
+            <div
+                class="container mx-auto flex flex-col items-center justify-center space-y-4 py-16 px-5 bg-white mt-6 rounded-lg">
+                <div>
+                    <img class="w-40" src="./file.png" alt="document logo">
+                </div>
+                <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+                <p class="text-[#64748B] text-base font-normal">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+
+</html>

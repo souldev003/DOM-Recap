@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript New Btn</title>
+</head>
+
+<body>
+    <button style="background-color: red;">Click me</button>
+    <div id="div">
+
+    </div>
+
+    <script>
+        const div = document.getElementById('div');
+
+        const newBtn = document.createElement('button');
+        newBtn.innerText = 'hello';
+        newBtn.style.backgroundColor = 'greenyellow'
+        newBtn.style.padding = "12px"
+        div.append(newBtn);
+    </script>
+</body>
+
+</html>
